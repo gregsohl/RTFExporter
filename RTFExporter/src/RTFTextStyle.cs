@@ -79,5 +79,18 @@ namespace RTFExporter
       this.color = color;
       this.underline = underline;
     }
+
+	public RTFTextStyle(RTFTextStyle sourceStyle)
+	{
+		this.italic        = sourceStyle.italic;
+		this.bold          = sourceStyle.bold;
+		this.smallCaps     = sourceStyle.smallCaps;
+		this.strikeThrough = sourceStyle.strikeThrough;
+		this.allCaps       = sourceStyle.allCaps;
+		this.outline       = sourceStyle.outline;
+		this.fontSize      = sourceStyle.fontSize;
+		this.fontFamily    = sourceStyle.fontFamily;
+		this.color         = sourceStyle.color;
+		this.underline     = sourceStyle.underline;	}
   }
 }

@@ -98,5 +98,16 @@ namespace RTFExporter
       style = new RTFTextStyle(italic, bold, smallCaps, strikeThrough, allCaps, outline, 12, "Calibri", Color.black, underline);
       return this;
     }
+
+	/// <summary>
+	/// Sets the style.
+	/// </summary>
+	/// <param name="sourceStyle">The source style.</param>
+	/// <returns>RTFText.</returns>
+	public RTFText SetStyle(RTFTextStyle sourceStyle)
+	{
+		style = new RTFTextStyle(sourceStyle);
+        return this;
+	}
   }
 }
