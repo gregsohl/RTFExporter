@@ -5,18 +5,7 @@ namespace RTFExporter
 	/// </summary>
 	public class RtfColor
 	{
-		public byte r;
-		public byte g;
-		public byte b;
-		public int index;
-		public static readonly RtfColor Black = new RtfColor(0, 0, 0);
-		public static readonly RtfColor White = new RtfColor(255, 255, 255);
-		public static readonly RtfColor Red = new RtfColor(255, 0, 0);
-		public static readonly RtfColor Green = new RtfColor(0, 255, 0);
-		public static readonly RtfColor Blue = new RtfColor(0, 0, 255);
-		public static readonly RtfColor Yellow = new RtfColor(255, 255, 0);
-		public static readonly RtfColor Purple = new RtfColor(255, 0, 255);
-		public static readonly RtfColor Cyan = new RtfColor(0, 255, 255);
+		#region Public Constructors
 
 		/// <summary>
 		/// RtfColor constructor
@@ -44,5 +33,25 @@ namespace RTFExporter
 			g = color.G;
 			b = color.B;
 		}
+
+		#endregion Public Constructors
+
+
+		#region Public Fields
+
+		public static readonly RtfColor Black = new RtfColor(0, 0, 0);
+		public static readonly RtfColor Blue = new RtfColor(0, 0, 255);
+		public static readonly RtfColor Cyan = new RtfColor(0, 255, 255);
+		public static readonly RtfColor Green = new RtfColor(0, 255, 0);
+		public static readonly RtfColor Purple = new RtfColor(255, 0, 255);
+		public static readonly RtfColor Red = new RtfColor(255, 0, 0);
+		public static readonly RtfColor White = new RtfColor(255, 255, 255);
+		public static readonly RtfColor Yellow = new RtfColor(255, 255, 0);
+		public byte b;
+		public byte g;
+		public int index;
+		public byte r;
+
+		#endregion Public Fields
 	}
 }
