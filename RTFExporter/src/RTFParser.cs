@@ -153,14 +153,14 @@ namespace RTFExporter
 
     private static string ColorParsing()
     {
-      List<Color> colors = new List<Color>();
+      List<RtfColor> colors = new List<RtfColor>();
       int j = 1;
 
       for (int i = 0; i < document.colors.Count; i++)
       {
         var add = true;
 
-        foreach (Color color in colors)
+        foreach (RtfColor color in colors)
         {
           if (color.r == document.colors[i].r && color.g == document.colors[i].g && color.b == document.colors[i].b)
           {

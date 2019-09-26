@@ -29,19 +29,19 @@ namespace RTFExporter
     public bool outline;
     public int fontSize;
     public string fontFamily;
-    public Color color;
+    public RtfColor color;
     public Underline underline;
 
     /// <summary>
     /// The simple style constructor
-    /// <seealso cref="RTFExporter.Color"/>
+    /// <seealso cref="RtfColor"/>
     /// </summary>
     /// <param name="italic">Is italic?</param>
     /// <param name="bold">Is bold?</param>
     /// <param name="fontSize">Font size in pt</param>
     /// <param name="fontFamily">A valid font family, will use Calibri if doesn't exist</param>
     /// <param name="color">A rgb color to the text</param>
-    public RTFTextStyle(bool italic, bool bold, int fontSize, string fontFamily, Color color)
+    public RTFTextStyle(bool italic, bool bold, int fontSize, string fontFamily, RtfColor color)
     {
       this.italic = italic;
       this.bold = bold;
@@ -52,7 +52,7 @@ namespace RTFExporter
 
     /// <summary>
     /// The style constructor
-    /// <seealso cref="RTFExporter.Color"/>
+    /// <seealso cref="RtfColor"/>
     /// <seealso cref="RTFExporter.Underline"/>
     /// </summary>
     /// <param name="italic">Is italic?</param>
@@ -66,7 +66,7 @@ namespace RTFExporter
     /// <param name="color">A rgb color to the text</param>
     /// <param name="underline">The underline type</param>
     public RTFTextStyle(bool italic, bool bold, bool smallCaps, bool strikeThrough, bool allCaps,
-      bool outline, int fontSize, string fontFamily, Color color, Underline underline)
+      bool outline, int fontSize, string fontFamily, RtfColor color, Underline underline)
     {
       this.italic = italic;
       this.bold = bold;

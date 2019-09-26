@@ -55,7 +55,7 @@ namespace RTFExporter
   public class RTFDocument : IDisposable
   {
     public List<RTFParagraph> paragraphs = new List<RTFParagraph>();
-    public List<Color> colors = new List<Color>();
+    public List<RtfColor> colors = new List<RtfColor>();
     public List<string> fonts = new List<string>();
     public string author;
     public float width;

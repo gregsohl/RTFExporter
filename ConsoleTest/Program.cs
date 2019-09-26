@@ -19,7 +19,7 @@ namespace ConsoleTest
 				false,
 				10,
 				"Arial",
-				Color.black,
+				RtfColor.Black,
 				Underline.None);
 
 			RTFTextStyle fieldNameStyle = new RTFTextStyle(
@@ -31,7 +31,7 @@ namespace ConsoleTest
 				false,
 				10,
 				"Arial",
-				Color.red,
+				RtfColor.Red,
 				Underline.None);
 
 			RTFTextStyle valueStyle = new RTFTextStyle(
@@ -43,7 +43,7 @@ namespace ConsoleTest
 				false,
 				10,
 				"Arial",
-				Color.blue,
+				RtfColor.Blue,
 				Underline.None);
 
 			var fileName = @"d:\temp\test.rtf";
