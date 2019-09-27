@@ -173,6 +173,7 @@ namespace RTFExporter
 		public Units units;
 		public int version = 1;
 		public float width;
+		public bool includeDocumentProperties = true;
 
 		#endregion Public Fields
 

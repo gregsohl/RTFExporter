@@ -63,6 +63,8 @@ namespace ConsoleTest
 			using(FileStream fs = File.Create(fileName))
 			using (RTFDocument rtf = new RTFDocument(fs))
 			{
+				rtf.includeDocumentProperties = false;
+
 				var paragraph = rtf.AppendParagraph();
 
 				new RTFText(paragraph, "Field ", normalStyle);

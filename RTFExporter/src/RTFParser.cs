@@ -78,25 +78,28 @@ namespace RTFExporter
 			str += FontsParsing();
 			str += ColorParsing();
 
-			str += "{\\info {\\author " + sourceDocument.author + "}";
-			DateTime date = DateTime.Now;
-			str += "{\\creatim\\yr" + date.Year + "\\mo" + date.Month + "\\dy" + date.Day + "\\hr" + date.Hour +
-				   "\\min" + date.Minute + "}";
-			str += "{\\version" + sourceDocument.version + "}";
-			str += "{\\edmins0}";
-			str += "{\\nofpages1}";
-			str += "{\\nofwords0}";
-			str += "{\\nofchars0}";
-			str += "}";
-
-			str += "{\\keywords ";
-
-			foreach (string keyword in sourceDocument.keywords)
+			if (sourceDocument.includeDocumentProperties)
 			{
-				str += keyword + " ";
-			}
+				str += "{\\info {\\author " + sourceDocument.author + "}";
+				DateTime date = DateTime.Now;
+				str += "{\\creatim\\yr" + date.Year + "\\mo" + date.Month + "\\dy" + date.Day + "\\hr" + date.Hour +
+					   "\\min" + date.Minute + "}";
+				str += "{\\version" + sourceDocument.version + "}";
+				str += "{\\edmins0}";
+				str += "{\\nofpages1}";
+				str += "{\\nofwords0}";
+				str += "{\\nofchars0}";
+				str += "}";
 
-			str += "}";
+				str += "{\\keywords ";
+
+				foreach (string keyword in sourceDocument.keywords)
+				{
+					str += keyword + " ";
+				}
+
+				str += "}";
+			}
 
 			switch (sourceDocument.orientation)
 			{
