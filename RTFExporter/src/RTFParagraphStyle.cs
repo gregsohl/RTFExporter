@@ -110,7 +110,7 @@ namespace RTFExporter
 			switch (document.units)
 			{
 				case Units.Inch:
-					indent = new Indent(1, 0, 0);
+					indent = new Indent(0, 0, 0);
 					break;
 				case Units.Millimeters:
 					indent = new Indent(25.4f, 0, 0);

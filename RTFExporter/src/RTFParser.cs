@@ -435,7 +435,18 @@ namespace RTFExporter
 					text.content = text.content.Replace("þ", "\\'FE");
 					text.content = text.content.Replace("ÿ", "\\'FF");
 
-					str += text.content;
+					if (text is RTFHyperlink)
+					{
+						// Hyperlink format
+						// {\field{\*\fldinst HYPERLINK "http://www.google.com"}{\fldrslt http://www.google.com}}
+						
+						RTFHyperlink hyperlink = text as RTFHyperlink;
+						str += @"{\field{\*\fldinst HYPERLINK " + hyperlink.Hyperlink + @"}{\fldrslt " + text.content + "}}";
+					}
+					else
+					{
+						str += text.content;
+					}
 				}
 
 				str += "\\par ";

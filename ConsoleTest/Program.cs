@@ -46,6 +46,18 @@ namespace ConsoleTest
 				RtfColor.Blue,
 				Underline.None);
 
+			RTFTextStyle linkStyle = new RTFTextStyle(
+				false,
+				false,
+				false,
+				false,
+				false,
+				false,
+				10,
+				"Arial",
+				RtfColor.Blue,
+				Underline.Basic);
+
 			var fileName = @"d:\temp\test.rtf";
 
 			using(FileStream fs = File.Create(fileName))
@@ -53,17 +65,21 @@ namespace ConsoleTest
 			{
 				var paragraph = rtf.AppendParagraph();
 
-				var rtfText = new RTFText(paragraph, "Field ");
-				rtfText.SetStyle(normalStyle);
+				new RTFText(paragraph, "Field ", normalStyle);
 
-				rtfText = new RTFText(paragraph, "Due Date");
-				rtfText.SetStyle(fieldNameStyle);
+				new RTFText(paragraph, "Due Date", fieldNameStyle);
 
-				rtfText = new RTFText(paragraph, " changed to ");
-				rtfText.SetStyle(normalStyle);
+				new RTFText(paragraph, " changed to ", normalStyle);
 
-				rtfText = new RTFText(paragraph, "03/01, 04/01");
-				rtfText.SetStyle(valueStyle);
+				new RTFText(paragraph, "03/01, 04/01.", valueStyle);
+
+				new RTFText(paragraph, "Field ", normalStyle);
+
+				new RTFText(paragraph, "Form URL", fieldNameStyle);
+
+				new RTFText(paragraph, " changed to ", normalStyle);
+
+				var hyperlink = new RTFHyperlink(paragraph, "https://www.google.com", "https://www.google.com", valueStyle);
 
 				// string output = RTFParser.ToString(rtf);
 			}
