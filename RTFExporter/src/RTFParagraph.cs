@@ -16,9 +16,17 @@ namespace RTFExporter
 		/// <param name="document">The RTF document to append the paragraph</param>
 		public RTFParagraph(
 			RTFDocument document)
+			: this(document, true)
+		{
+		}
+
+		public RTFParagraph(
+			RTFDocument document,
+			bool outputTrailingParagraphClose)
 		{
 			style = new RTFParagraphStyle(document);
 			document.paragraphs.Add(this);
+			this.outputTrailingParagraphClose = outputTrailingParagraphClose;
 		}
 
 		#endregion Public Constructors
@@ -27,6 +35,10 @@ namespace RTFExporter
 
 		public RTFParagraphStyle style;
 		public List<RTFText> text = new List<RTFText>();
+
+		/// Paragraphs inside table cells don't need and end/begin new paragraph marker. It makes an extra 
+		/// paragraph entry in the bottom of the cell. This allows disabling output of the trailing \par 
+		public bool outputTrailingParagraphClose;
 
 		#endregion Public Fields
 

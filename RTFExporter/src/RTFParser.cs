@@ -66,11 +66,17 @@ namespace RTFExporter
 			{
 				foreach (RTFText text in paragraph.text)
 				{
-					sourceDocument.colors.Add(text.style.color);
+					if (!sourceDocument.colors.Contains(text.style.color))
+					{
+						sourceDocument.colors.Add(text.style.color);
+					}
 
 					if (text.style.fontFamily != string.Empty)
 					{
-						sourceDocument.fonts.Add(text.style.fontFamily);
+						if (!sourceDocument.fonts.Contains(text.style.fontFamily))
+						{
+							sourceDocument.fonts.Add(text.style.fontFamily);
+						}
 					}
 				}
 			}
@@ -201,7 +207,10 @@ namespace RTFExporter
 				str += "{\\f" + i + " " + fonts[i] + ";}";
 				try
 				{
-					m_FontsIndex.Add(fonts[i], i);
+					if (!m_FontsIndex.ContainsKey(fonts[i]))
+					{
+						m_FontsIndex.Add(fonts[i], i);
+					}
 				}
 				catch
 				{
@@ -258,7 +267,11 @@ namespace RTFExporter
 				str += ParseText(text);
 			}
 
-			str += "\\par ";
+			if (paragraph.outputTrailingParagraphClose)
+			{
+				str += "\\par ";
+			}
+
 			return str;
 		}
 
